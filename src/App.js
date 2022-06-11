@@ -3,6 +3,8 @@ import './styles/App.css';
 import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
 
+import titleLogo from './images/title_logo.jpg';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,7 @@ class App extends Component {
   }
 
   render() {
+    // if the user is logged in, display this
     if(this.state.login) {
       return (
         <div className="main">
@@ -36,15 +39,15 @@ class App extends Component {
           </div>
         </div>
       );
+    // otherwise, display this
     } else {
       return (
-        <div className="main">
-          <div className="headerbuttons">
-            <div className="tbutt"><Button variant="outline-secondary" onClick={this.login}>Login</Button></div>
+        <div className="container-column">
+          <div className="container-third white center">
+            <img src={titleLogo}></img>
           </div>
-
-          <div className="main">
-            login dummy
+          <div className="container-whole pink center">
+            LOGIN HALF
           </div>
         </div>
       );
