@@ -1,0 +1,19 @@
+body {
+  background: #f0b7b7}
+
+.text {
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 75px;
+}
+
+.bod {
+  background-color: pink;
+}
+
+.header {
+  text-align: center;
+}
