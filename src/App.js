@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import './styles/App.css';
 import Button from 'react-bootstrap/Button';
-
+import Deso from 'deso-protocol';
 
 class App extends Component {
+  login = async () => {
+    const deso = new Deso();
+    const request = 3;
+    const response = await deso.identity.login(request);
+  }
+
   render() {
     return (
-      <div className="text">
-        {"Welcome to SecondChance"}
+      <div className="main">
+        <div className="headerbuttons">
+          <div className="tbutt"><Button variant="outline-secondary" onClick={this.login}>Login</Button></div>
+        </div>
 
-        <Button variant="light">Get Started</Button>
+        
       </div>
     );
   }

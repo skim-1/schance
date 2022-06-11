@@ -1,5 +1,6 @@
-body {
-  background: #f0b7b7}
+* {
+  background: #ffb0b0;
+}
 
 .text {
   position:absolute;
@@ -10,10 +11,22 @@ body {
   font-size: 75px;
 }
 
-.bod {
-  background-color: pink;
+.main {
+
 }
 
 .header {
   text-align: center;
+}
+
+.headerbuttons {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.tbutt {
+  margin:2px;
 }
