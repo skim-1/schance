@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import '../styles/App.css';
-import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
 
 import Form from 'react-bootstrap/Form'
@@ -25,8 +24,6 @@ const Chatbox = props => {
             props.usrs.map((item, index) => {
               if (item.key === item_.SenderMessagingPublicKey) {
                 otherName = item.username;
-              } else if (item.key === props.usrkey) {
-                yourName = item.username;
               }
             })
 
@@ -41,8 +38,7 @@ const Chatbox = props => {
           } else if (item_.SenderMessagingPublicKey === props.usrkey && item_.RecipientMessagingPublicKey === props.currentUser) {
             return (<div key={index_}>
               {
-
-              yourName + ": " + item_.DecryptedMessage
+              props.username + ": " + item_.DecryptedMessage
               }<br/></div>);
               }
           })

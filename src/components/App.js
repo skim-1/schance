@@ -20,6 +20,7 @@ class App extends Component {
       ulog: [],
       value: '',
       currentUser: 'BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh', //adjust this to the other user
+      username: '', //string of your user's username
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,7 +47,7 @@ class App extends Component {
               "MessageText": msg
             };
 
-             const response = await deso.social.sendMessage(request);
+             await deso.social.sendMessage(request);
 
           }
 
@@ -54,9 +55,15 @@ class App extends Component {
     const deso = new Deso();
     const request = 3;
     const response = await deso.identity.login(request);
+
+    const r_ = {
+      "PublicKeyBase58Check": response.key
+    };
+    const res_ = await deso.user.getSingleProfile(r_);
     this.setState({
       login: true,
-      usrkey: response.key
+      usrkey: response.key,
+      username: res_.Profile.Username,
     })
 
     //stuff for api call to get msgs that have been sent to your user
@@ -135,6 +142,7 @@ class App extends Component {
                 sendMsg={this.sendMessage}
                 handleChange={this.handleChange}
                 currentUser={this.state.currentUser}
+                username={this.state.username}
               />
               </div>
 
