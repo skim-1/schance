@@ -12,23 +12,43 @@ const res = await deso.user.getSingleProfile(r);
 await tclog.push(res.Profile.Username);
 */
 const Chatbox = props => {
-  //props.highlight
+    //props.highlight
+    var otherName = "";
+    var yourName = "";
+
     return (
     <div>
       <table>
           <th>
           <div> {
+
           props.msgs.map((item_, index_) => {
-            console.log(props.currentUser);
-            if (item_.SenderMessagingPublicKey === props.currentUser || item_.RecipientMessagingPublicKey === props.currentUser) {
-            console.log(item_.DecryptedMessage);
+
+            props.usrs.map((item, index) => {
+              if (item.key === item_.SenderMessagingPublicKey) {
+                otherName = item.username;
+              } else if (item.key === props.usrkey) {
+                yourName = item.username;
+              }
+            })
+
+
+            console.log(yourName + " " + otherName);
+
+            if (item_.SenderMessagingPublicKey === props.currentUser) {
             return (<div key={index_}>
               {
 
-              item_.DecryptedMessage
+              otherName + ": " + item_.DecryptedMessage
               }<br/>
             </div>);
-            }
+            } else if (item_.SenderMessagingPublicKey === props.usrkey) {
+            return (<div key={index_}>
+              {
+
+              yourName + ": " + item_.DecryptedMessage
+              }<br/></div>);
+              }
           })
           }
           </div>
