@@ -89,10 +89,16 @@ class App extends Component {
     var tclog = [];
 
     responsec.map(async (item, index) => {
-      if(!clog.includes(item.SenderMessagingPublicKey) && item.SenderMessagingPublicKey !== this.state.usrkey) {
+      if(!clog.includes(item.SenderMessagingPublicKey)) {
         await clog.push(item.SenderMessagingPublicKey);
       }
+
+      if(!clog.includes(item.RecipientMessagingPublicKey)) {
+        await clog.push(item.RecipientMessagingPublicKey);
+      }
     });
+
+    clog = clog.filter(c => c !== this.state.usrkey);
 
     for(let i = 0; i < clog.length; i++) {
       const r = {
