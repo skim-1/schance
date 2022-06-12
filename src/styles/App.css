@@ -82,3 +82,17 @@
 .tbutt {
   margin:2px;
 }
+
+.chatbox {
+  border-radius: 10px;
+  background-color: white;
+  height: 85vh;
+  width: 85vw;
+  padding-left: 15px;
+  padding-top: 8px;
+}
+
+.chatheader {
+  font-weight: bold;
+  font-size: 32px;
+}
