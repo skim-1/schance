@@ -16,8 +16,8 @@ const Chatbox = props => {
     var otherName = "";
     var yourName = "";
 
-    var totalScore = "";
-    var msgCount = "";
+    var totalScore = 0;
+    var msgCount = 0;
 
     return (
     <div>
@@ -40,9 +40,11 @@ const Chatbox = props => {
             var result = sentiment.analyze(item_.DecryptedMessage);
 
             totalScore += result.score;
-            msgCount += 1;
+            msgCount ++;
 
-            console.log(totalScore/msgCount);
+            var avg = totalScore/msgCount;
+            console.log(totalScore);
+            console.log(avg.toFixed(2)); // truncated number
 
             return (<div key={index_}>
               {
