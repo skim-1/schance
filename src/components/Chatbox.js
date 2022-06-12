@@ -16,6 +16,9 @@ const Chatbox = props => {
     var otherName = "";
     var yourName = "";
 
+    var totalScore = "";
+    var msgCount = "";
+
     return (
     <div>
           <div> {
@@ -28,8 +31,17 @@ const Chatbox = props => {
               }
             })
 
-
+            console.log(yourName);
             if (item_.SenderMessagingPublicKey === props.currentUser && item_.RecipientMessagingPublicKey === props.usrkey) {
+            var Sentiment = require('sentiment');
+            var sentiment = new Sentiment();
+            var result = sentiment.analyze(item_.DecryptedMessage);
+
+            totalScore += result.score;
+            msgCount += 1;
+
+            console.log(totalScore/msgCount);
+
             return (<div key={index_}>
               {
 
