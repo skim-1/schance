@@ -1,20 +1,44 @@
 :root {
   --pink-color: #ffa2a2;
   --blue-color: #4a86e8;
-  padding: none;
-  margin: none;
+  --blue-hover-color: #4a6ae8;
+}
+
+#root {
+  height: 100vh;
+}
+
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
 }
 
 .pink {
   background-color: var(--pink-color);
 }
 
+.pink-text {
+  color: var(--pink-color);
+}
+
 .blue {
   background-color: var(--blue-color);
 }
 
+.blue-text {
+  color: var(--blue-color);
+}
+
 .white {
   background-color: White;
+}
+
+.white-text {
+  color: White;
 }
 
 .center {
@@ -26,7 +50,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: 100vh;
   width: 100vw;
 }
 
@@ -34,8 +57,6 @@
   display: flex;
   flex-direction: row;
   flex: 1;
-  height: 100vh;
-  width: 100vw;
 }
 
 .container-whole {
@@ -53,13 +74,48 @@
   flex: 0.33333333;
 }
 
+.container-fourth {
+  display: flex;
+  flex: 0.25;
+}
+
+.container-sixth {
+  display: flex;
+}
+
+.above {
+  z-index: 1;
+}
+
 button {
   background-color: White;
   border: none;
 }
 
 button:hover {
-  background-color:
+  background-color: var(--blue-hover-color);
+}
+
+.max-height: {
+  height: 100% !important;
+}
+
+.max-width: {
+  width: 100% !important;
+}
+
+.big-button {
+  width: 100px;
+  height: 50px;
+}
+
+.rounded {
+  border-radius: 45px;
+}
+
+.login-gradient {
+  background: rgb(180,58,58);
+background: linear-gradient(256deg, rgba(180,58,58,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 .text {
@@ -69,6 +125,10 @@ button:hover {
   transform: translate(-50%, -50%);
   font-weight: bold;
   font-size: 75px;
+}
+
+.motivation-text {
+  font-size: min(5vw, 50px);
 }
 
 .main {
