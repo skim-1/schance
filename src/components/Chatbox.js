@@ -10,21 +10,10 @@ const r = {
 const res = await deso.user.getSingleProfile(r);
 await tclog.push(res.Profile.Username);
 */
-const Chats = props => {
+const Chatbox = props => {
   //props.highlight
     return (
       <table>
-        <th>
-          <div>
-          {
-          props.usrs.map((item, index) => (
-            <div key={index}>
-            {item}<br/>
-            </div>
-          ))
-          }
-          </div>
-          </th>
           <th>
           <div> {
           props.msgs.map((item_, index_) => (
@@ -39,4 +28,4 @@ const Chats = props => {
     );
 };
 
-export default Chats;
+export default Chatbox;

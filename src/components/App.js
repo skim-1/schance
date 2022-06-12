@@ -3,6 +3,7 @@ import '../styles/App.css';
 import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
 
+import Chatbox from './Chatbox';
 import Chats from './Chats';
 
 import titleLogo from '../images/title_logo.jpg';
@@ -79,12 +80,27 @@ class App extends Component {
 
             <div className="chatheader">{"Chat"}</div>
 
-            <Chats
-              login={this.state.login}
-              usrkey={this.state.usrkey}
-              msgs={this.state.chatlog}
-              usrs={this.state.ulog}
-            />
+            <table>
+
+              <th>
+              <Chats
+                login={this.state.login}
+                usrkey={this.state.usrkey}
+                msgs={this.state.chatlog}
+                usrs={this.state.ulog}
+              />
+              </th>
+
+              <th>
+              <Chatbox
+                login={this.state.login}
+                usrkey={this.state.usrkey}
+                msgs={this.state.chatlog}
+                usrs={this.state.ulog}
+              />
+              </th>
+
+            </table>
 
           </div>
         </div>
