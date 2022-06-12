@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/App.css';
+import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
 
 import Form from 'react-bootstrap/Form'
