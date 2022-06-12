@@ -29,10 +29,17 @@ class App extends Component {
       this.setState({value: event.target.value});
     }
 
-        sendMessage = async(senderID, recipientID, msg) => {
-        const deso = new Deso();
 
-             console.log(msg);
+
+        sendMessage = async(senderID, recipientID, msg) => {
+             var Sentiment = require('sentiment');
+             var sentiment = new Sentiment();
+
+            const deso = new Deso();
+             var result = sentiment.analyze(msg);
+
+             console.log(result.score); // SEND THIS TO OTHER USER
+
             const request = {
               "RecipientPublicKeyBase58Check": recipientID,
               "SenderPublicKeyBase58Check": senderID,
@@ -40,6 +47,7 @@ class App extends Component {
             };
 
              const response = await deso.social.sendMessage(request);
+
           }
 
   login = async () => {
@@ -70,12 +78,13 @@ class App extends Component {
     var tclog = [];
 
     responsec.map(async (item, index) => {
-      if(!clog.includes(item.SenderMessagingPublicKey) && item.SenderMessagingPublicKey !== this.state.usrkey) {
+      if(!clog.includes(item.SenderMessagingPublicKey)) {
         await clog.push(item.SenderMessagingPublicKey);
       }
     });
 
     for(let i = 0; i < clog.length; i++) {
+      console.log(clog[i])
       const r = {
         "PublicKeyBase58Check": clog[i]
       };
