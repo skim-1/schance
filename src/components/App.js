@@ -151,12 +151,19 @@ class App extends Component {
     // otherwise, display this
     } else {
       return (
-        <div className="container-column">
-          <div className="container-third white center">
-            <img src={titleLogo}></img>
+        <div className="container-column login-gradient" style={{height: "100vh"}}>
+          <div className="container-fourth center">
+            <svg style={{position: "absolute", top: "0px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,32L30,74.7C60,117,120,203,180,197.3C240,192,300,96,360,74.7C420,53,480,107,540,117.3C600,128,660,96,720,96C780,96,840,128,900,117.3C960,107,1020,53,1080,80C1140,107,1200,213,1260,229.3C1320,245,1380,171,1410,133.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+            <img src={titleLogo} style={{position: "absolute", width: "35%", top: "0.5%"}}></img>
           </div>
-          <div className="container-whole pink center">
-            <div className="tbutt"><Button variant="outline-secondary" onClick={this.login}>Login</Button></div>
+          <div className="container-fourth center">
+            <h4 className="white-text motivation-text">Believe  in second chances? We do too.</h4>
+          </div>
+          <div className="container-fourth center">
+            <button className="big-button rounded blue white-text above" onClick={this.login}>Login</button>
+          </div>
+          <div className="container-fourth center">
+            <svg style={{position: "absolute", bottom: "0px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path fill="#5000ca" fillOpacity="0.1" d="M0,0L26.7,5.3C53.3,11,107,21,160,64C213.3,107,267,181,320,224C373.3,267,427,277,480,240C533.3,203,587,117,640,112C693.3,107,747,181,800,197.3C853.3,213,907,171,960,165.3C1013.3,160,1067,192,1120,181.3C1173.3,171,1227,117,1280,85.3C1333.3,53,1387,43,1413,37.3L1440,32L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path></svg>
           </div>
         </div>
       );
