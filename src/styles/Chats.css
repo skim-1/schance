@@ -1,0 +1,18 @@
+.chatlist {
+  width:15vw;
+  border:1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.butts {
+   border-width: 0px;
+}
+
+.bs {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  background-color: #D9D9D9;
+}

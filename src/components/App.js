@@ -18,8 +18,29 @@ class App extends Component {
       usrkey: 0,
       chatlog: [],
       ulog: [],
+      value: '',
+      currentUser: 'BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh',
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+        sendMessage = async(senderID, recipientID, msg) => {
+        const deso = new Deso();
+
+             console.log(msg);
+            const request = {
+              "RecipientPublicKeyBase58Check": recipientID,
+              "SenderPublicKeyBase58Check": senderID,
+              "MessageText": msg
+            };
+
+             const response = await deso.social.sendMessage(request);
+          }
 
   login = async () => {
     const deso = new Deso();
@@ -41,6 +62,8 @@ class App extends Component {
       "HoldingsOnly": false,
       "SortAlgorithm": "time"
     };
+
+
 
     const responsec = await deso.social.getMessagesStateless(requestc);
     var clog = [];
@@ -75,7 +98,7 @@ class App extends Component {
     // if the user is logged in, display this
     if(this.state.login) {
       return (
-        <div className="container-column pink center">
+        <div className="chatbody pink center">
           <div className="chatbox">
 
             <div className="chatheader">{"Chat"}</div>
@@ -97,12 +120,19 @@ class App extends Component {
                 usrkey={this.state.usrkey}
                 msgs={this.state.chatlog}
                 usrs={this.state.ulog}
+                value={this.state.value}
+                sendMsg={this.sendMessage}
+                handleChange={this.handleChange}
+                currentUser={this.state.currentUser}
               />
               </th>
 
             </table>
 
           </div>
+
+
+
         </div>
       );
     // otherwise, display this
