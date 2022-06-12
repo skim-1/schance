@@ -20,7 +20,7 @@ const Chatbox = props => {
           <div> {
           props.msgs.map((item_, index_) => {
             console.log(props.currentUser);
-            if (item_.SenderMessagingPublicKey == props.currentUser || item_.RecipientMessagingPublicKey == props.currentUser) {
+            if (item_.SenderMessagingPublicKey === props.currentUser || item_.RecipientMessagingPublicKey === props.currentUser) {
             console.log(item_.DecryptedMessage);
             return (<div key={index_}>
               {

@@ -54,7 +54,7 @@ class App extends Component {
     //stuff for api call to get msgs that have been sent to your user
     const requestc = {
       "NumToFetch": 25,
-      "PublicKeyBase58Check": "BC1YLjWEweJVskpFCHM4MetYGxe2noKFMAUP6q8LareV84WZfak5wMX",
+      "PublicKeyBase58Check": this.state.usrkey,
       "FetchAfterPublicKeyBase58Check": "",
       "HoldersOnly": false,
       "FollowersOnly": false,
@@ -81,7 +81,7 @@ class App extends Component {
         "PublicKeyBase58Check": clog[i]
       };
       const res = await deso.user.getSingleProfile(r);
-      tclog.push(res.Profile.Username);
+      tclog.push({'username': res.Profile.Username, 'key': clog[i], 'check': false});
     }
 
     this.setState({
@@ -93,6 +93,18 @@ class App extends Component {
 
     console.log(tclog);
   }
+
+  handleCheck = index => {
+    var newlist = this.state.ulog;
+    newlist.map((item, index) => {item.check = false});
+    newlist[index].check = !newlist[index].check;
+    this.setState({
+      list: newlist,
+      currentUser: newlist[index].key
+    });
+
+    console.log('dookie');
+  };
 
   render() {
     // if the user is logged in, display this
@@ -111,6 +123,7 @@ class App extends Component {
                 usrkey={this.state.usrkey}
                 msgs={this.state.chatlog}
                 usrs={this.state.ulog}
+                handleCheck={this.handleCheck}
               />
               </th>
 

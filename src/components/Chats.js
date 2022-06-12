@@ -16,11 +16,14 @@ const Chats = props => {
       <div className="chatlist">
         <div className="bs">
         {
-        props.usrs.map((item, index) => (
-          <button className="butts" key={index}>
-          {item}
-          </button>
-        ))
+        props.usrs.map((item, index) => {
+
+          return (
+            <button style={{backgroundColor: ( item.check ) ? "#8a97ff":"white"}} onClick={() => props.handleCheck(index)}>
+                {item.username}
+            </button>
+          )
+        })
         }
         </div>
       </div>
