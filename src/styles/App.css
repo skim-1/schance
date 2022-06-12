@@ -14,7 +14,7 @@
 }
 
 .white {
-  background-color: "White";
+  background-color: White;
 }
 
 .center {
@@ -35,6 +35,7 @@
   flex-direction: row;
   flex: 1;
   height: 100vh;
+  width: 100vw;
 }
 
 .container-whole {
@@ -50,6 +51,15 @@
 .container-third {
   display: flex;
   flex: 0.33333333;
+}
+
+button {
+  background-color: White;
+  border: none;
+}
+
+button:hover {
+  background-color:
 }
 
 .text {
@@ -77,10 +87,6 @@
   top: 5px;
   display: flex;
   flex-direction: row;
-}
-
-.tbutt {
-  margin:2px;
 }
 
 .chatbox {
