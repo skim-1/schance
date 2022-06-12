@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import '../styles/App.css';
 import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
-import Form from 'react-bootstrap/Form'
 
 import Chatbox from './Chatbox';
 import Chats from './Chats';
@@ -120,6 +119,9 @@ class App extends Component {
                 usrkey={this.state.usrkey}
                 msgs={this.state.chatlog}
                 usrs={this.state.ulog}
+                value={this.state.value}
+                sendMsg={this.sendMessage}
+                handleChange={this.handleChange}
               />
               </th>
 
@@ -127,17 +129,7 @@ class App extends Component {
 
           </div>
 
-                      <Form>
-                        <Form.Label>Message <input type="text" value={this.state.value} onChange={this.handleChange} /> </Form.Label>
 
-
-                      <Button variant="primary" onClick={() => this.sendMessage(
-                            "BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh",
-                            "BC1YLjWEweJVskpFCHM4MetYGxe2noKFMAUP6q8LareV84WZfak5wMX",
-                            this.state.value)}>
-                        Send
-                      </Button>
-                    </Form>
 
         </div>
       );
