@@ -41,14 +41,18 @@ class App extends Component {
 
              console.log(result.score); // SEND THIS TO OTHER USER
 
-            const request = {
-              "RecipientPublicKeyBase58Check": recipientID,
-              "SenderPublicKeyBase58Check": senderID,
-              "MessageText": msg
-            };
+             const request = {
+               "RecipientPublicKeyBase58Check": recipientID,
+               "SenderPublicKeyBase58Check": senderID,
+               "MessageText": msg
+             };
 
-             await deso.social.sendMessage(request);
+              const response = await deso.social.sendMessage(request);
 
+
+             this.setState({
+               chatlog: [...this.state.chatlog, {'DecryptedMessage':msg, 'RecipientMessagingPublicKey':recipientID, 'SenderMessagingPublicKey': senderID}]
+             })
           }
 
   login = async () => {

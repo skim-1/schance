@@ -31,7 +31,6 @@ const Chatbox = props => {
               }
             })
 
-            console.log(yourName);
             if (item_.SenderMessagingPublicKey === props.currentUser && item_.RecipientMessagingPublicKey === props.usrkey) {
             var Sentiment = require('sentiment');
             var sentiment = new Sentiment();
