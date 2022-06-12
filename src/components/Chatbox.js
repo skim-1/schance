@@ -35,14 +35,14 @@ const Chatbox = props => {
 
             console.log(yourName + " " + otherName);
 
-            if (item_.SenderMessagingPublicKey === props.currentUser) {
+            if (item_.SenderMessagingPublicKey === props.currentUser && item_.RecipientMessagingPublicKey === props.usrkey) {
             return (<div key={index_}>
               {
 
               otherName + ": " + item_.DecryptedMessage
               }<br/>
             </div>);
-            } else if (item_.SenderMessagingPublicKey === props.usrkey) {
+          } else if (item_.SenderMessagingPublicKey === props.usrkey && item_.RecipientMessagingPublicKey === props.currentUser) {
             return (<div key={index_}>
               {
 
