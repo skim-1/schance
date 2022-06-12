@@ -133,7 +133,7 @@ class App extends Component {
       return (
         <div className="container-whole white">
           <div className="container-row blue">
-            <div className="container-fourth">
+            <div className="container-whole" style={{maxWidth: "200px"}}>
               <Chats
                 login={this.state.login}
                 usrkey={this.state.usrkey}

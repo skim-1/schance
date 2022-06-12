@@ -22,48 +22,69 @@ const Chatbox = (props) => {
   if (props.currentUser !== "") {
     return (
       <div className="container-column blue">
-        {" "}
-        {props.msgs.map((item_, index_) => {
-          props.usrs.map((item, index) => {
-            if (item.key === item_.SenderMessagingPublicKey) {
-              otherName = item.username;
+        <div className="container-column">
+          {" "}
+          {props.msgs.map((item_, index_) => {
+            props.usrs.map((item, index) => {
+              if (item.key === item_.SenderMessagingPublicKey) {
+                otherName = item.username;
+              }
+            });
+
+            if (
+              item_.SenderMessagingPublicKey === props.currentUser &&
+              item_.RecipientMessagingPublicKey === props.usrkey
+            ) {
+              var Sentiment = require("sentiment");
+              var sentiment = new Sentiment();
+              var result = sentiment.analyze(item_.DecryptedMessage);
+
+              totalScore += result.score;
+              msgCount++;
+
+              var avg = totalScore / msgCount;
+              console.log(totalScore);
+              console.log(avg.toFixed(2)); // truncated number
+
+              return (
+                <div key={index_}>
+                {otherName + ": " + item_.DecryptedMessage}
+                <br />
+                </div>
+              );
+            } else if (
+              item_.SenderMessagingPublicKey === props.usrkey &&
+              item_.RecipientMessagingPublicKey === props.currentUser
+            ) {
+              return (
+                <div key={index_}>
+                {props.username + ": " + item_.DecryptedMessage}
+                <br />
+                </div>
+              );
             }
-          });
+          })}
+        </div>
+        <div className="container-sixth white">
+          <Form className="container-whole pink center">
+            <Form.Label className="container-whole">
+              <input
+                type="text"
+                value={props.value}
+                className="message-box"
+                onChange={props.handleChange}
+              />{" "}
+            </Form.Label>
 
-          if (
-            item_.SenderMessagingPublicKey === props.currentUser &&
-            item_.RecipientMessagingPublicKey === props.usrkey
-          ) {
-            var Sentiment = require("sentiment");
-            var sentiment = new Sentiment();
-            var result = sentiment.analyze(item_.DecryptedMessage);
-
-            totalScore += result.score;
-            msgCount++;
-
-            var avg = totalScore / msgCount;
-            console.log(totalScore);
-            console.log(avg.toFixed(2)); // truncated number
-
-            return (
-              <div key={index_}>
-              {otherName + ": " + item_.DecryptedMessage}
-              <br />
-              </div>
-            );
-          } else if (
-            item_.SenderMessagingPublicKey === props.usrkey &&
-            item_.RecipientMessagingPublicKey === props.currentUser
-          ) {
-            return (
-              <div key={index_}>
-              {props.username + ": " + item_.DecryptedMessage}
-              <br />
-              </div>
-            );
-          }
-        })}
-        <div className="container-whole white">
+            <button
+              className="big-button"
+              onClick={() =>
+                props.sendMsg(props.usrkey, props.currentUser, props.value)
+              }
+            >
+              Send
+            </button>
+          </Form>
         </div>
       </div>
     );
