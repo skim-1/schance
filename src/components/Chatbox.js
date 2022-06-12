@@ -28,12 +28,9 @@ const Chatbox = props => {
             props.usrs.map((item, index) => {
               if (item.key === item_.SenderMessagingPublicKey) {
                 otherName = item.username;
-              } else if (item.key === props.usrkey) {
-                yourName = item.username;
               }
             })
 
-            console.log(yourName);
             if (item_.SenderMessagingPublicKey === props.currentUser && item_.RecipientMessagingPublicKey === props.usrkey) {
             var Sentiment = require('sentiment');
             var sentiment = new Sentiment();
@@ -55,8 +52,7 @@ const Chatbox = props => {
           } else if (item_.SenderMessagingPublicKey === props.usrkey && item_.RecipientMessagingPublicKey === props.currentUser) {
             return (<div key={index_}>
               {
-
-              yourName + ": " + item_.DecryptedMessage
+              props.username + ": " + item_.DecryptedMessage
               }<br/></div>);
               }
           })
