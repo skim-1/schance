@@ -19,7 +19,7 @@ const Chats = props => {
         props.usrs.map((item, index) => {
 
           return (
-            <button style={{backgroundColor: ( item.check ) ? "#8a97ff":"white"}} onClick={() => props.handleCheck(index)}>
+            <button style={{backgroundColor: ( item.check ) ? "#8a97ff":"white"}} onClick={() => props.handleCheck(index)} key={index}>
                 {item.username}
             </button>
           )

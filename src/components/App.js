@@ -118,9 +118,7 @@ class App extends Component {
 
             <div className="chatheader">{"Chat"}</div>
 
-            <table>
-
-              <th>
+              <div className="chatstuff">
               <Chats
                 login={this.state.login}
                 usrkey={this.state.usrkey}
@@ -128,9 +126,6 @@ class App extends Component {
                 usrs={this.state.ulog}
                 handleCheck={this.handleCheck}
               />
-              </th>
-
-              <th>
               <Chatbox
                 login={this.state.login}
                 usrkey={this.state.usrkey}
@@ -141,9 +136,7 @@ class App extends Component {
                 handleChange={this.handleChange}
                 currentUser={this.state.currentUser}
               />
-              </th>
-
-            </table>
+              </div>
 
           </div>
 
