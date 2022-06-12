@@ -21,8 +21,6 @@ const Chatbox = props => {
 
     return (
     <div>
-      <table>
-          <th>
           <div> {
 
           props.msgs.map((item_, index_) => {
@@ -62,8 +60,6 @@ const Chatbox = props => {
           })
           }
           </div>
-        </th>
-      </table>
       <Form>
                               <Form.Label>Message <input type="text" value={props.value} onChange={props.handleChange} /> </Form.Label>
 
