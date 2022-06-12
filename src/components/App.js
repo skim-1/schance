@@ -78,13 +78,12 @@ class App extends Component {
     var tclog = [];
 
     responsec.map(async (item, index) => {
-      if(!clog.includes(item.SenderMessagingPublicKey)) {
+      if(!clog.includes(item.SenderMessagingPublicKey) && item.SenderMessagingPublicKey !== this.state.usrkey) {
         await clog.push(item.SenderMessagingPublicKey);
       }
     });
 
     for(let i = 0; i < clog.length; i++) {
-      console.log(clog[i])
       const r = {
         "PublicKeyBase58Check": clog[i]
       };
@@ -98,8 +97,6 @@ class App extends Component {
       chatlog: responsec,
       ulog: tclog,
     })
-
-    console.log(tclog);
   }
 
   handleCheck = index => {
@@ -110,8 +107,6 @@ class App extends Component {
       list: newlist,
       currentUser: newlist[index].key
     });
-
-    console.log('dookie');
   };
 
   render() {

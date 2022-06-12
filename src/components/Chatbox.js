@@ -33,8 +33,6 @@ const Chatbox = props => {
             })
 
 
-            console.log(yourName + " " + otherName);
-
             if (item_.SenderMessagingPublicKey === props.currentUser && item_.RecipientMessagingPublicKey === props.usrkey) {
             return (<div key={index_}>
               {
@@ -59,8 +57,8 @@ const Chatbox = props => {
 
 
                             <Button variant="primary" onClick={() => props.sendMsg(
-                                  "BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh",
-                                  "BC1YLjWEweJVskpFCHM4MetYGxe2noKFMAUP6q8LareV84WZfak5wMX",
+                                  props.usrkey,
+                                  props.currentUser,
                                   props.value)}>
                               Send
                             </Button>
