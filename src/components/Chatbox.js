@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../styles/App.css';
+import '../styles/Chatbox.css';
 import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
 
