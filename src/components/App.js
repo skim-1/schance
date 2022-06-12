@@ -75,7 +75,7 @@ class App extends Component {
     // if the user is logged in, display this
     if(this.state.login) {
       return (
-        <div className="container-column pink center">
+        <div className="chatbody pink center">
           <div className="chatbox">
 
             <div className="chatheader">{"Chat"}</div>
