@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../styles/App.css';
 import Button from 'react-bootstrap/Button';
 import Deso from 'deso-protocol';
+import Form from 'react-bootstrap/Form'
 
 import Chatbox from './Chatbox';
 import Chats from './Chats';
@@ -18,8 +19,28 @@ class App extends Component {
       usrkey: 0,
       chatlog: [],
       ulog: [],
+      value: '',
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+        sendMessage = async(senderID, recipientID, msg) => {
+        const deso = new Deso();
+
+             console.log(msg);
+            const request = {
+              "RecipientPublicKeyBase58Check": recipientID,
+              "SenderPublicKeyBase58Check": senderID,
+              "MessageText": msg
+            };
+
+             const response = await deso.social.sendMessage(request);
+          }
 
   login = async () => {
     const deso = new Deso();
@@ -41,6 +62,8 @@ class App extends Component {
       "HoldingsOnly": false,
       "SortAlgorithm": "time"
     };
+
+
 
     const responsec = await deso.social.getMessagesStateless(requestc);
     var clog = [];
@@ -103,6 +126,19 @@ class App extends Component {
             </table>
 
           </div>
+
+                      <Form>
+                        <Form.Label>Message <input type="text" value={this.state.value} onChange={this.handleChange} /> </Form.Label>
+
+
+                      <Button variant="primary" onClick={() => this.sendMessage(
+                            "BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh",
+                            "BC1YLjWEweJVskpFCHM4MetYGxe2noKFMAUP6q8LareV84WZfak5wMX",
+                            this.state.value)}>
+                        Send
+                      </Button>
+                    </Form>
+
         </div>
       );
     // otherwise, display this

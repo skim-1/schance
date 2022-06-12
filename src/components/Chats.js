@@ -33,6 +33,7 @@ const Chats = props => {
             </div>
           ))
           }
+
           </div>
         </th>
       </table>
