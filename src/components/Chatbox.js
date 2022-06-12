@@ -18,11 +18,18 @@ const Chatbox = props => {
       <table>
           <th>
           <div> {
-          props.msgs.map((item_, index_) => (
-            <div key={index_}>
-              {item_.DecryptedMessage}<br/>
-            </div>
-          ))
+          props.msgs.map((item_, index_) => {
+            console.log(props.currentUser);
+            if (item_.SenderMessagingPublicKey == props.currentUser || item_.RecipientMessagingPublicKey == props.currentUser) {
+            console.log(item_.DecryptedMessage);
+            return (<div key={index_}>
+              {
+
+              item_.DecryptedMessage
+              }<br/>
+            </div>);
+            }
+          })
           }
           </div>
         </th>

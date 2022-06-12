@@ -19,6 +19,7 @@ class App extends Component {
       chatlog: [],
       ulog: [],
       value: '',
+      currentUser: 'BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -122,6 +123,7 @@ class App extends Component {
                 value={this.state.value}
                 sendMsg={this.sendMessage}
                 handleChange={this.handleChange}
+                currentUser={this.state.currentUser}
               />
               </th>
 

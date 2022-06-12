@@ -13,7 +13,6 @@ await tclog.push(res.Profile.Username);
 const Chats = props => {
   //props.highlight
     return (
-<<<<<<< HEAD
       <div className="chatlist">
         <div className="bs">
         {
@@ -25,32 +24,6 @@ const Chats = props => {
         }
         </div>
       </div>
-=======
-      <table>
-        <th>
-          <div>
-          {
-          props.usrs.map((item, index) => (
-            <div key={index}>
-            {item}<br/>
-            </div>
-          ))
-          }
-          </div>
-          </th>
-          <th>
-          <div> {
-          props.msgs.map((item_, index_) => (
-            <div key={index_}>
-              {item_.DecryptedMessage}<br/>
-            </div>
-          ))
-          }
-
-          </div>
-        </th>
-      </table>
->>>>>>> 53accb3cb2b0694dfc568bf69b34a1dac232b9b5
     );
 };
 
