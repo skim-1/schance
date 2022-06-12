@@ -18,7 +18,7 @@ const Chats = props => {
         {
         props.usrs.map((item, index) => (
           <button className="butts" key={index}>
-          {item}
+          {item.username}
           </button>
         ))
         }

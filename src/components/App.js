@@ -54,7 +54,7 @@ class App extends Component {
     //stuff for api call to get msgs that have been sent to your user
     const requestc = {
       "NumToFetch": 25,
-      "PublicKeyBase58Check": "BC1YLjWEweJVskpFCHM4MetYGxe2noKFMAUP6q8LareV84WZfak5wMX",
+      "PublicKeyBase58Check": this.state.usrkey,
       "FetchAfterPublicKeyBase58Check": "",
       "HoldersOnly": false,
       "FollowersOnly": false,
@@ -81,7 +81,7 @@ class App extends Component {
         "PublicKeyBase58Check": clog[i]
       };
       const res = await deso.user.getSingleProfile(r);
-      tclog.push(res.Profile.Username);
+      tclog.push({'username': res.Profile.Username, 'key': clog[i]});
     }
 
     this.setState({
