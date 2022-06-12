@@ -19,7 +19,7 @@ class App extends Component {
       chatlog: [],
       ulog: [],
       value: '',
-      currentUser: 'BC1YLgaCiCZ32rAxTAYLA8HamjsWV6nuzqBBN5aZMnRC3zMWU29cuTh', //adjust this to the other user
+      currentUser: '', //adjust this to the other user
       username: '', //string of your user's username
     }
 
