@@ -110,6 +110,8 @@ class App extends Component {
       tclog.push({'username': res.Profile.Username, 'key': clog[i], 'check': false});
     }
 
+    tclog.pop();
+
     this.setState({
       login: true,
       usrkey: response.key,

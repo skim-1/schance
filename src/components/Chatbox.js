@@ -65,8 +65,8 @@ const Chatbox = (props) => {
             }
           })}
         </div>
-        <div className="container-fourth white">
-          <Form className="container-whole blue-hover center">
+        <div className="container-sixth column white">
+          <Form className="container-whole blue-hover">
             <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "100%"}}>
               <input
                 type="text"
@@ -75,22 +75,17 @@ const Chatbox = (props) => {
                 onChange={props.handleChange}
               />{" "}
             </Form.Label>
-            <button
-              type="button"
-              className="send-button"
-              onClick={() =>
-                props.sendMsg(props.usrkey, props.currentUser, props.value)
-              }
-            >
-              Send
-            </button>
           </Form>
         </div>
       </div>
     );
   } else {
     //this is what displays when no one is selected
-    return <div>joe</div>;
+    return (
+        <div className="container-whole blue center">
+          <h1 className="white-text">Who are we messaging today?</h1>
+        </div>
+    );
   }
 };
 

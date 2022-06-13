@@ -122,12 +122,6 @@ button:hover {
   height: 50px;
 }
 
-.send-button {
-  text-align: center;
-  width: 100px;
-  height: 100%;
-}
-
 .friend-button {
   flex: 1;
   max-height: 6vh;
