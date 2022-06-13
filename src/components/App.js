@@ -52,7 +52,7 @@ class App extends Component {
              };
 
               const response = await deso.social.sendMessage(request);
-
+                this.setState({value: ""})
 
 
           }
