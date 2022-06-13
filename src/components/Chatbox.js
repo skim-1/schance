@@ -69,7 +69,6 @@ const Chatbox = (props) => {
               item_.SenderMessagingPublicKey === props.usrkey &&
               item_.RecipientMessagingPublicKey === props.currentUser
             ) {
-              document.getElementById("little-box").style.top = (0+"px");
               return (
                 <div key={index_} className="blue-hover" style={{flex: "0.05", borderRadius: "10px", maxWidth: "650px", marginTop: "10px", paddingTop: "0px", paddingLeft: "5px", marginLeft: "5px"}}>
                 {props.username + ": " + item_.DecryptedMessage}
