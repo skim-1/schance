@@ -34,6 +34,9 @@ class App extends Component {
 
 
         sendMessage = async(senderID, recipientID, msg) => {
+          this.setState({
+            chatlog: [...this.state.chatlog, {'DecryptedMessage':msg, 'RecipientMessagingPublicKey':recipientID, 'SenderMessagingPublicKey': senderID}]
+          })
              var Sentiment = require('sentiment');
              var sentiment = new Sentiment();
 
@@ -51,9 +54,7 @@ class App extends Component {
               const response = await deso.social.sendMessage(request);
 
 
-             this.setState({
-               chatlog: [...this.state.chatlog, {'DecryptedMessage':msg, 'RecipientMessagingPublicKey':recipientID, 'SenderMessagingPublicKey': senderID}]
-             })
+
           }
 
   login = async () => {
