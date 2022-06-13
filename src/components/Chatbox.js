@@ -75,14 +75,15 @@ const Chatbox = (props) => {
                 onChange={props.handleChange}
               />{" "}
             </Form.Label>
-            <Button
+            <button
+              type="button"
               className="send-button"
               onClick={() =>
                 props.sendMsg(props.usrkey, props.currentUser, props.value)
               }
             >
               Send
-            </Button>
+            </button>
           </Form>
         </div>
       </div>
