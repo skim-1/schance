@@ -76,7 +76,7 @@ const Chatbox = (props) => {
               />{" "}
             </Form.Label>
             <button
-              type="button"
+              type="submit"
               className="send-button"
               onClick={() =>
                 props.sendMsg(props.usrkey, props.currentUser, props.value)
