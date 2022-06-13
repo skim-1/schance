@@ -175,5 +175,5 @@ button:hover {
 
 .s-grad {
   max-width: 20px;
-  background: linear-gradient(180deg, #00cc07, #1fd100, #48d500, #71da00, #9ddf00, #cae300, #e8d600, #ecaf00, #f18600, #f65b00, #fa2e00, #ff0000);
+  background: linear-gradient(360deg, #00cc07, #1fd100, #48d500, #71da00, #9ddf00, #cae300, #e8d600, #ecaf00, #f18600, #f65b00, #fa2e00, #ff0000);
 }

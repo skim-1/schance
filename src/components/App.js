@@ -164,6 +164,7 @@ class App extends Component {
                 />
               </div>
               <div className="container-fourth column s-grad" style={{maxHeight: "100vh"}}>
+                <div id="little-box" style={{backgroundColor:"black", position:"absolute", width:"20px", height:"5px", top:"0px", right:"100vw-20px"}}></div>
               </div>
             </div>
           </div>

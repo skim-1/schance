@@ -47,10 +47,17 @@ const Chatbox = (props) => {
 
               totalScore += result.score;
               msgCount++;
-
+              const xMax = 1080;
+              const xMin = 0;
+              const yMax = 5.0;
+              const yMin = 0.0;
               var avg = totalScore / msgCount;
+              const percent = (avg - yMin) / (yMax - yMin);
+              const outputX = percent * (xMax - xMin) + xMin;
               console.log(totalScore);
+              console.log(outputX);
               console.log(avg.toFixed(2)); // truncated number
+              document.getElementById("little-box").style.top = (outputX+"px");
 
               return (
                 <div key={index_} style={{backgroundColor: "pink", borderRadius: "10px", maxWidth: "650px", marginTop: "10px", paddingTop: "0px", paddingLeft: "5px", marginLeft: "20px"}}>
@@ -62,6 +69,7 @@ const Chatbox = (props) => {
               item_.SenderMessagingPublicKey === props.usrkey &&
               item_.RecipientMessagingPublicKey === props.currentUser
             ) {
+              document.getElementById("little-box").style.top = (0+"px");
               return (
                 <div key={index_} className="blue-hover" style={{flex: "0.05", borderRadius: "10px", maxWidth: "650px", marginTop: "10px", paddingTop: "0px", paddingLeft: "5px", marginLeft: "5px"}}>
                 {props.username + ": " + item_.DecryptedMessage}
