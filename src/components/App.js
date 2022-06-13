@@ -135,7 +135,7 @@ class App extends Component {
         <div className="container-whole white">
           <div className="container-column white">
             <div className="container-row white">
-              <div className="container-whole column friend-gradient" style={{maxWidth: "200px"}}>
+              <div className="container-whole column" style={{maxWidth: "200px"}}>
                 <div className="container-sixth center" style={{marginBottom: "44px"}}>
                   <br/>
                 </div>
