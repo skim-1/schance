@@ -139,9 +139,6 @@ class App extends Component {
           <div className="container-column white">
             <div className="container-row white">
               <div className="container-whole column" style={{maxWidth: "200px"}}>
-                <div className="container-sixth center" style={{marginBottom: "44px"}}>
-                  <br/>
-                </div>
                 <Chats
                   login={this.state.login}
                   usrkey={this.state.usrkey}
@@ -151,11 +148,9 @@ class App extends Component {
                 />
               </div>
               <div className="container-whole column white">
-                <div className="container-sixth row" style={{height: "44px"}}>
-                  <div className="container-sixth center white" style={{height: "44px"}}>
+                  <div className="white center" style={{height: "44px", display: "flex"}}>
                     <img src={miniTitleLogo} height="100%"/>
                   </div>
-                </div>
                 <Chatbox
                   login={this.state.login}
                   usrkey={this.state.usrkey}
@@ -167,6 +162,8 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   username={this.state.username}
                 />
+              </div>
+              <div className="container-fourth column s-grad" style={{maxHeight: "100vh"}}>
               </div>
             </div>
           </div>

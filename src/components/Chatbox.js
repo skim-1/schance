@@ -27,8 +27,8 @@ const Chatbox = (props) => {
 
   if (props.currentUser !== "") {
     return (
-      <div className="container-column blue-hover">
-        <div className="container-column">
+      <div className="container-whole column">
+        <div className="column login-gradient hold" style={{overflow: "auto"}}>
           {" "}
           {props.msgs.map((item_, index_) => {
             props.usrs.map((item, index) => {
@@ -53,7 +53,7 @@ const Chatbox = (props) => {
               console.log(avg.toFixed(2)); // truncated number
 
               return (
-                <div key={index_}>
+                <div key={index_} style={{backgroundColor: "pink", borderRadius: "10px", maxWidth: "650px", marginTop: "10px", paddingTop: "0px", paddingLeft: "5px", marginLeft: "20px"}}>
                 {otherName + ": " + item_.DecryptedMessage}
                 <br />
                 </div>
@@ -63,7 +63,7 @@ const Chatbox = (props) => {
               item_.RecipientMessagingPublicKey === props.currentUser
             ) {
               return (
-                <div key={index_}>
+                <div key={index_} className="blue-hover" style={{flex: "0.05", borderRadius: "10px", maxWidth: "650px", marginTop: "10px", paddingTop: "0px", paddingLeft: "5px", marginLeft: "5px"}}>
                 {props.username + ": " + item_.DecryptedMessage}
                 <br />
                 </div>
@@ -71,9 +71,9 @@ const Chatbox = (props) => {
             }
           })}
         </div>
-        <div className="container-fourth white">
-          <Form className="container-whole blue-hover center" onSubmit={onSubmit}>
-            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "90%"}}>
+        <div className="white" style={{overflow: "auto", minHeight: "90px", maxHeight: "90px"}}>
+          <Form className="container-whole blue-hover" onSubmit={onSubmit} style={{padding: "8px", minHeight: "90px", maxHeight: "90px"}}>
+            <Form.Label className="container-whole blue-hover">
               <input
                 type="text"
                 value={props.value}
@@ -82,6 +82,7 @@ const Chatbox = (props) => {
               />{" "}
             </Form.Label>
             <button
+              style={{display: "none"}}
               type="submit"
               className="send-button"
               onClick={() =>

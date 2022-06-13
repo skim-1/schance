@@ -56,6 +56,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
 }
 
 .container-row {
@@ -154,15 +155,25 @@ button:hover {
   font-size: 75px;
 }
 
+.hold {
+  max-height: min(100%,830px);
+  min-height: 830px;
+}
+
 .motivation-text {
   font-size: min(5vw, 50px);
 }
 
 .message-box {
   width: 100%;
-  height: 100%;
+  height: 110%;
   border-style: solid;
   border-color: var(--blue-hover-color);
   border-radius: 4px;
   background-color: var(--blue-color);
+}
+
+.s-grad {
+  max-width: 20px;
+  background: linear-gradient(180deg, #00cc07, #1fd100, #48d500, #71da00, #9ddf00, #cae300, #e8d600, #ecaf00, #f18600, #f65b00, #fa2e00, #ff0000);
 }

@@ -13,7 +13,7 @@ await tclog.push(res.Profile.Username);
 const Chats = (props) => {
   //props.highlight
   return (
-    <div className="container-column white" style={{alignItems: "center"}}>
+    <div className="container-column blue-hover" style={{alignItems: "center"}}>
         {props.usrs.map((item, index) => {
           return (
             <button
