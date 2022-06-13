@@ -21,7 +21,7 @@ const Chatbox = (props) => {
 
   if (props.currentUser !== "") {
     return (
-      <div className="container-column blue">
+      <div className="container-column blue-hover">
         <div className="container-column">
           {" "}
           {props.msgs.map((item_, index_) => {
@@ -65,9 +65,9 @@ const Chatbox = (props) => {
             }
           })}
         </div>
-        <div className="container-sixth white">
-          <Form className="container-whole pink center">
-            <Form.Label className="container-whole">
+        <div className="container-fourth white">
+          <Form className="container-whole blue-hover center">
+            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "90%"}}>
               <input
                 type="text"
                 value={props.value}
@@ -75,15 +75,14 @@ const Chatbox = (props) => {
                 onChange={props.handleChange}
               />{" "}
             </Form.Label>
-
-            <button
-              className="big-button"
+            <Button
+              className="send-button"
               onClick={() =>
                 props.sendMsg(props.usrkey, props.currentUser, props.value)
               }
             >
               Send
-            </button>
+            </Button>
           </Form>
         </div>
       </div>

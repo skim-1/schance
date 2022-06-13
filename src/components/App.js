@@ -7,6 +7,7 @@ import Chatbox from './Chatbox';
 import Chats from './Chats';
 
 import titleLogo from '../images/second_chance_logo.svg';
+import miniTitleLogo from '../images/second_chance_logo_mini.svg'
 
 class App extends Component {
   constructor(props) {
@@ -132,28 +133,38 @@ class App extends Component {
     if(this.state.login) {
       return (
         <div className="container-whole white">
-          <div className="container-row blue">
-            <div className="container-whole" style={{maxWidth: "200px"}}>
-              <Chats
-                login={this.state.login}
-                usrkey={this.state.usrkey}
-                msgs={this.state.chatlog}
-                usrs={this.state.ulog}
-                handleCheck={this.handleCheck}
-              />
-            </div>
-            <div className="container-whole white">
-              <Chatbox
-                login={this.state.login}
-                usrkey={this.state.usrkey}
-                msgs={this.state.chatlog}
-                usrs={this.state.ulog}
-                value={this.state.value}
-                sendMsg={this.sendMessage}
-                handleChange={this.handleChange}
-                currentUser={this.state.currentUser}
-                username={this.state.username}
-              />
+          <div className="container-column white">
+            <div className="container-row white">
+              <div className="container-whole column friend-gradient" style={{maxWidth: "200px"}}>
+                <div className="container-sixth center" style={{marginBottom: "44px"}}>
+                  <br/>
+                </div>
+                <Chats
+                  login={this.state.login}
+                  usrkey={this.state.usrkey}
+                  msgs={this.state.chatlog}
+                  usrs={this.state.ulog}
+                  handleCheck={this.handleCheck}
+                />
+              </div>
+              <div className="container-whole column white">
+                <div className="container-sixth row" style={{height: "44px"}}>
+                  <div className="container-sixth center white" style={{height: "44px"}}>
+                    <img src={miniTitleLogo} height="100%"/>
+                  </div>
+                </div>
+                <Chatbox
+                  login={this.state.login}
+                  usrkey={this.state.usrkey}
+                  msgs={this.state.chatlog}
+                  usrs={this.state.ulog}
+                  value={this.state.value}
+                  sendMsg={this.sendMessage}
+                  handleChange={this.handleChange}
+                  currentUser={this.state.currentUser}
+                  username={this.state.username}
+                />
+              </div>
             </div>
           </div>
         </div>
