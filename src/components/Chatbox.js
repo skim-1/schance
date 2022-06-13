@@ -50,7 +50,7 @@ const Chatbox = (props) => {
               const xMax = 1080;
               const xMin = 0;
               const yMax = 5.0;
-              const yMin = 0.0;
+              const yMin = -5.0;
               var avg = totalScore / msgCount;
               const percent = (avg - yMin) / (yMax - yMin);
               const outputX = percent * (xMax - xMin) + xMin;
