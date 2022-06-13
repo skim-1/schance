@@ -21,8 +21,8 @@ const Chatbox = (props) => {
 
   if (props.currentUser !== "") {
     return (
-      <div className="container-column blue-hover">
-        <div className="container-column">
+      <div className="container-column login-gradient">
+        <div className="container-column" style={{overflow: "scroll", overflowX: "hidden", maxHeight: "90vh"}}>
           {" "}
           {props.msgs.map((item_, index_) => {
             props.usrs.map((item, index) => {
@@ -67,7 +67,7 @@ const Chatbox = (props) => {
         </div>
         <div className="container-fourth white">
           <Form className="container-whole blue-hover center">
-            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "90%"}}>
+            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "100%"}}>
               <input
                 type="text"
                 value={props.value}
