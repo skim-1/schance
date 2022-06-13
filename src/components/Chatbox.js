@@ -12,6 +12,12 @@ const res = await deso.user.getSingleProfile(r);
 await tclog.push(res.Profile.Username);
 */
 const Chatbox = (props) => {
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("refresh prevented");
+  };
+
   //props.highlight
   var otherName = "";
   var yourName = "";
@@ -21,8 +27,8 @@ const Chatbox = (props) => {
 
   if (props.currentUser !== "") {
     return (
-      <div className="container-column login-gradient">
-        <div className="container-column" style={{overflow: "scroll", overflowX: "hidden", maxHeight: "90vh"}}>
+      <div className="container-column blue-hover">
+        <div className="container-column">
           {" "}
           {props.msgs.map((item_, index_) => {
             props.usrs.map((item, index) => {
@@ -66,8 +72,8 @@ const Chatbox = (props) => {
           })}
         </div>
         <div className="container-fourth white">
-          <Form className="container-whole blue-hover center">
-            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "100%"}}>
+          <Form className="container-whole blue-hover center" onSubmit={onSubmit}>
+            <Form.Label className="container-whole blue-hover center" style={{margin: "0px", height: "90%"}}>
               <input
                 type="text"
                 value={props.value}
